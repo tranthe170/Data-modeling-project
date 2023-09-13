@@ -1,4 +1,4 @@
-# ETL (Extract, Transform, Load) using PySpark
+# ETL (Extract, Transform, Load) using PySpark following KimBall style
 
 This project demonstrates the ETL process using PySpark for data modeling. It involves extracting data, transforming it into dimension tables, creating a date dimension table, and finally, joining these dimension tables with fact data.
 
