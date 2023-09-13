@@ -2,14 +2,6 @@
 
 This project demonstrates the ETL process using PySpark for data modeling. It involves extracting data, transforming it into dimension tables, creating a date dimension table, and finally, joining these dimension tables with fact data.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Data Loading](#data-loading)
-- [Creating Dimension Tables](#creating-dimension-tables)
-- [Creating a Date Dimension Table](#creating-a-date-dimension-table)
-- [Joining Dimension Tables with Fact Data](#joining-dimension-tables-with-fact-data)
-
 ## Introduction
 
 In this project, we perform ETL operations to model data for analytical purposes. The process involves several steps, including data extraction, transformation, and loading.
@@ -57,3 +49,19 @@ DimDate is a date dimension table. It stores date-related information, including
 FactSales is the fact table that stores sales data. It includes references to the dimension tables (ProductKey, DateKey, and CustomerKey) and measures such as Units, Unit Cost, and Unit Price.
 
 ![Data Warehouse Diagram](DataWarehouse.png)
+
+## Import Data to SQL Server
+
+To import the transformed data into SQL Server, you can use the provided functions to write the dimension and fact tables into your SQL Server database. Here are the steps to import the data:
+
+1. **Ensure SQL Server Configuration**: Make sure you have a SQL Server instance set up and running. You should also have the required database created.
+
+2. **Configure SQL Server Connection**: Open the script and locate the `writeSQLServer` function calls. Ensure that the following parameters are correctly configured to match your SQL Server setup:
+
+   - `server_name`: The connection URL for your SQL Server instance.
+   - `database_name`: The name of the target database.
+   - `username` and `password`: Your SQL Server credentials.
+
+3. **Run the ETL Process**: Execute the script, which performs the ETL process using PySpark, creating dimension and fact tables.
+
+4. **Import Dimension Tables**: Use the `writeSQLServer` function to write each dimension table (e.g., DimDate, DimGeography, DimProduct, DimCustomer) to SQL Server. The function will append the data to the existing tables.
